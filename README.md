@@ -20,6 +20,10 @@ C:\xampp\mysql\bin\mysql -u root -p < backend/schema.sql
 
 (O backend também cria a tabela automaticamente ao iniciar, caso ainda não exista.)
 
+## 2. REST Client (Extensão)
+
+Baixe a extensão REST Client no vscode
+
 ## 2. Backend (Fastify)
 
 ```bash
@@ -41,29 +45,4 @@ A API sobe em `http://localhost:3333`.
 | PATCH  | /api/tasks/:id     | Atualiza `{ completed?, title?, dueDate? }` |
 | DELETE | /api/tasks/:id     | Remove uma tarefa                           |
 
-## 3. Frontend (React + Vite)
-
-```bash
-cd frontend
-copy .env.example .env   # VITE_API_URL=http://localhost:3333
-npm install
-npm run dev
-```
-
-Acesse `http://localhost:5173` (a porta precisa coincidir com `CORS_ORIGIN` do backend).
-
-> **Importante:** o `server.js` foi ajustado para liberar `PATCH` e `DELETE` no CORS
-> (o padrão do `@fastify/cors` só libera GET/HEAD/POST, o que bloquearia editar, concluir e excluir).
-
-## Funcionalidades
-
-- Listagem de tarefas com contadores de total e concluídas
-- Busca de tarefas em tempo real (com debounce)
-- Criação de tarefas via modal ("Create Task"), com data limite opcional
-- Edição de tarefas via modal ("Edit Task") — botão de lápis em cada item
-- Marcar/desmarcar tarefa como concluída (checkbox com gradiente)
-- Exclusão de tarefas (botões de editar/excluir aparecem ao passar o mouse)
-- **Data limite e atraso**: tarefas com data de vencimento no passado e ainda pendentes ficam com o título em vermelho e exibem o selo "Em atraso"
-- Ordenação automática: tarefas com data mais próxima aparecem primeiro
-- Estado vazio idêntico ao mockup ("You have no pending tasks.")
-- Botão flutuante "+" no canto inferior direito
+Acesse o documento rotas.http e teste o send request
